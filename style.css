@@ -1,0 +1,131 @@
+/* Global Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #000000df;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffdddde9;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+header h1 {
+    color: #011e3d;
+    margin-bottom: 3rem;
+}
+
+header p {
+    color: #011e3d;
+    font-size: 1.33rem;
+    margin-bottom: 1rem;
+}
+
+/* Button & Link Styles */
+.button {
+    display: inline-block;
+    background-color: #011e3d;
+    color: #dedddd;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    border-top: 1px solid #eee;
+}
+
+/* App-Specific Styles */
+.app-content {
+    background-color: #e9ecef;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.signpost {
+    /* Enables Flexbox, giving you powerful alignment tools */
+    display: flex; 
+    
+    /* Stacks the buttons vertically (one under the other) */
+    flex-direction: column; 
+    
+    /* Centers the buttons horizontally within the container */
+    align-items: center; 
+    
+    /* Adds a little breathing room between each button */
+    gap: 15px; 
+    }
+
+    /* Modal Styles */
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    }
+
+    .modal-content {
+    background-color: #011e3d;
+    color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 80%;
+    }
+
+    .loader {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #ffcc00;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem auto;
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }

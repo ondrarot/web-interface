@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to My Local Hub</h1>
+            <p>Please select an application to launch:</p>
+        </header>
+
+        <nav class="signpost">
+            <a href="RocketGame/index.html" class="button">Rocket Game</a>
+            <a href="AutomaticSpeechEvaluation/index.html" class="button">Automatic Speech Evaluation</a>
+            <a href="SyntheticSpeechDetection/index.html" class="button">Synthetic Speech Detection</a>
+        </nav>
+    </div>
+
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <h2 id="modal-title">System Initialization...</h2>
+            <p id="modal-message">Please wait while we load the Speech Evaluation models. This happens only once.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
