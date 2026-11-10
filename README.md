@@ -69,9 +69,3 @@ uvicorn main:app --reload
 
 ### 3. Open in Browser
 Navigate to `http://127.0.0.1:8000` in your web browser to access the application dashboard.
-
----
-
-## 📜 License
-
-This project is shared for research and educational purposes. See individual model repository licenses for downstream model usage guidelines.
