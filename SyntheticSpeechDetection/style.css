@@ -1,0 +1,103 @@
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.drop-zone {
+    max-width: 400px;
+    height: 200px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    color: #cccccc;
+    border: 4px dashed #009578;
+    border-radius: 10px;
+    margin: 0 auto 1.5rem;
+}
+
+.drop-zone--over {
+    border-style: solid;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.drop-zone__thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #cccccc;
+    background-size: cover;
+    position: relative;
+}
+
+.primary-button {
+    background: #009578;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+.primary-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.result-display {
+    margin: 2rem 0;
+}
+
+.label {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.label.synthetic {
+    color: #e74c3c;
+}
+
+.label.real {
+    color: #27ae60;
+}
+
+#confidence-bar-container {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+#confidence-bar {
+    height: 100%;
+    width: 0%;
+    background: #009578;
+    transition: width 0.5s ease-in-out;
+}
+
+.back-link {
+    display: block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #009578;
+    font-weight: bold;
+}

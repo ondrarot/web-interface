@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- hlavička -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rocket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- tělo -->
+<body>
+
+    <!-- celá stránka -->
+    <div class="main">
+
+        <!-- hlavička s nadpisem -->
+        <div class="header">
+            <h2>Rocket Landing</h2>
+        </div>
+
+        <!-- rozdělení samotné stránky -->
+        <div class="page">
+
+            <!-- Levá strana se scénou -->
+            <div class="side left">
+                
+                <!-- scéna -->
+                <svg id="svg">
+                    <!-- Live Timer in the scene -->
+                    <text id="liveTimer" x="50%" y="30" text-anchor="middle" fill="black" style="font-size: 24px; font-weight: bold; pointer-events: none;"></text>
+                </svg>
+                <!-- <svg id="svg" viewBox="0 0 {width} {height}" preserveAspectRatio="xMinYMin meet"></svg> -->
+
+                <!-- výstupní hlášení -->
+                <div id="infoDisplay" class="modal">
+                    <div class="modal-content">
+                        <h2 id="infoName"></h2>
+                        <p id="infoDetails"></p>
+                        <button id="startGameModalBtn" class="reset-btn" style="margin-top: 15px; width: 120px;">Start Game</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pravá strana s navigačním panelem a ovládacími prvky -->
+            <div class="side right">
+
+                <!-- informační panel -->
+                <div class="infopanel">
+
+                    <!-- Tabulka s hodnotami pro info --> 
+                    <table>
+                        <tr>
+                            <td>Status:</td>
+                            <td><span id="status">status</span></td>
+                        </tr>
+                        <tr>
+                            <td>Scene width:</td>
+                            <td><span id="rexX"></span> px</td>
+                        </tr> 
+                        <tr>
+                            <td>Scene height:</td>
+                            <td><span id="rexY"></span> px</td>
+                        </tr> 
+                        <tr>
+                            <td>X position:</td>
+                            <td><span id="x"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Y position:</td>
+                            <td><span id="y"></span></td>
+                        </tr>
+                        <tr>
+                            <td>in air:</td>
+                            <td><span id="inair"></span></td>
+                        </tr>
+                        <tr>
+                            <td>touchdown:</td>
+                            <td><span id="touchdown"></span></td>
+                        </tr>
+                        <tr>
+                            <td>crashed:</td>
+                            <td><span id="crashed"></span></td>
+                        </tr>
+                        <tr>
+                            <td>time:</td>
+                            <td><span id="time">0.00</span> s</td>
+                        </tr>
+                    </table>
+
+                    <!-- nastavení hodnoty výkonu motoru -->
+                    <div class="engine">
+                        <p>Engine throttle (výkon motoru): <span id="throttle">1.0</span></p>
+                        <input type="range" id="throttleSlider" min="0.5" max="2.5" step="0.1" value="1.0" style="width: 80%;">
+                    </div>
+
+
+
+                    <!-- Bar-grafy a šipka na vykreslení rychlostí -->
+                    <div class="svgRow">
+
+                        <!-- Bar-grafy -->
+                        <div class="svgLeft">
+                            <svg id="svgBarGraph" width="200" height="120"></svg>
+                        </div>
+
+                        <!-- směrová šipka -->
+                        <div class="svgRight">
+                            <svg id="svgArrow" width="120" height="120"></svg>
+                        </div>
+                    </div>
+
+                    <!-- šipky na ovládání -->
+                    <div class="controls">
+                        <button id="left" class="arrow-btn">&#60;</button>
+                        <button id="up" class="arrow-btn">&#8743;</button>
+                        <button id="right" class="arrow-btn">&#62;</button>
+                    </div>
+
+                    <!-- Level Selection Box -->
+                    <div class="level-box" style="margin-top: 5px; padding: 10px; border: 2px solid #5b2c00; border-radius: 10px; background-color: #252422; text-align: center;">
+                        <p style="margin-top: 0; font-weight: bold; color: #fffcf2;">Level Selection</p>
+                        <div style="display: flex; justify-content: space-around;">
+                            <button id="btnLevel1" class="reset-btn active-level" style="width: 80px;">Level 1</button>
+                            <button id="btnLevel2" class="reset-btn" style="width: 80px;">Level 2</button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 5px; margin-bottom: 5px;">
+            <a href="../index.html" style="text-decoration: none; color: #007bff; font-weight: bold;">← Back to Homepage</a>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>

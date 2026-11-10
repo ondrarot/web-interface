@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Speech Detection</title>
+    <link rel="stylesheet" href="../AutomaticSpeechEvaluation/style.css">
+    <style>
+        /* Alignment with Automatic Speech Evaluation styling */
+        .upload-area {
+            border: 2px dashed #011e3d;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        #audio-preview {
+            width: 100%;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .prediction-label {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            color: #ffcc00;
+        }
+
+        .real-text { color: #27ae60; }
+        .synthetic-text { color: #e74c3c; }
+
+        .confidence-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            color: #011e3d;
+        }
+
+        .result-card {
+            background-color: #011e3d;
+            color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+            animation: fadeIn 0.5s ease;
+            text-align: center;
+        }
+
+        .result-card h2 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            background-color: rgba(255, 77, 77, 0.1);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin: 1.5rem auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #011e3d;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Initial Loading Modal (visible by default to match Evaluation App) -->
+    <div id="loading-modal" class="modal" style="display: flex;">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <h2 id="modal-title">System Initialization...</h2>
+            <p id="modal-message">Please wait while we load the Synthetic Speech Detection models. This happens only once.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🕵️ Synthetic Speech Detection</h1>
+            <p>Identify if an audio recording is Real or Synthetic using wav2vec 2.0 model.</p>
+        </header>
+
+        <section class="app-content">
+            <div class="upload-area" id="drop-zone">
+                <p>Click or drag & drop a <b>.wav</b> file here</p>
+                <input type="file" id="file-input" accept=".wav" style="display: none;">
+            </div>
+
+            <audio id="audio-preview" controls></audio>
+
+            <button id="detect-btn" class="button" style="width: 100%; margin-top: 1rem;" disabled>Detect Synthetic Speech</button>
+
+            <div class="loading-spinner" id="loader"></div>
+            <p id="processing-text" style="display: none; text-align: center; color: #011e3d; font-weight: bold;">Analyzing speech authenticity...</p>
+
+            <div class="result-card" id="result-card">
+                <h2>Detection Result:</h2>
+                <div id="prediction-label" class="prediction-label">---</div>
+                <p class="confidence-text" id="confidence-text" style="color: white;">Confidence: 0%</p>
+                <div style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                    <span id="real-prob">Real: 0%</span> | <span id="synth-prob">Synthetic: 0%</span>
+                </div>
+            </div>
+
+            <div class="error-message" id="error-msg"></div>
+        </section>
+
+        <footer>
+            <a href="../index.html" class="back-link">Back to Homepage</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

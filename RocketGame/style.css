@@ -1,0 +1,269 @@
+html, body {
+    height: 100vh;                     /* Nastaví výšku celého dokumentu na 100% výšky aktuálního zobrazení (viewport height) */
+    margin: 0;                        /* Nastaví okraj okolo celého dokumentu na 0, aby odstranil výchozí okraje prohlížeče */
+    font-family: Arial, Helvetica, sans-serif;       /* Nastaví písmo pro všechny textové prvky na Arial, Helvetica či sans-serif */
+    background-color: #5b2c00; 
+}
+
+/* Hlavička */
+.header {
+    height: 60px;                     /* Nastaví výšku prvku na 60 pixelů */
+    background-color: #3d2a02;      /* Nastaví barvu pozadí na tmavě hnědou */
+    text-align: center;               /* Zarovná text na střed */  
+    border: 2px solid black;        /* Ohraničení černou barvou s tloušťkou 2px */
+}
+
+/* nadpis */
+.header h2{
+    font-size: 30px;       /* Nastavuje velikost písma na 30px */
+    color: #fffcf2;      /* Nastavuje barvu textu na světle krémovou */
+    padding: 15px;         /* Přidává vnitřní okraje (padding) kolem textu o velikosti 15px - ten mezi hranicí tohoto prvku a tímto prvkem */
+    margin: 0px;           /* Odstraní vnější okraje (margin) kolem textu - ten mezi hranicí tohoto a jiného prvku */
+    text-shadow: 0 0 0.1em black, 0 0 0.1em black;      /* zvýraznění textu nadpisu */
+}
+
+/* celá stránka */
+.main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #5b2c00;      /* Nastaví barvu pozadí na tmavě hnědou */
+    overflow: hidden;
+}
+
+/* rozdělení samotné stránkyy */
+.page {
+    display: flex;      /* Nastavuje způsob zobrazení prvku na flexibilní layout pomocí flexboxu */
+    flex: 1;              /* Add this so the page fills the remaining vertical space */
+    min-height: 0;        /* Ensures the content doesn't overflow improperly */
+    overflow: hidden;
+}
+
+/* levá a pravá část dohromady */
+.side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;          /* Přidává vnitřní okraje (padding) kolem textu o velikosti 10px */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* levá část se scénou */
+.side.left {
+    height: 100%;
+    flex: 3;        /* znamená, že prvek .side.left bude zabírat 3x více místa ve flexboxu než ostatní prvky s flexibilní vlastností nastavenou na 1 */
+    justify-content: center;        /* Nově přidané */
+    align-items: center;            /* Nově přidané */
+    /* max-height: 600px; */
+    min-width: 280px;
+}
+
+/* odstavec pro scénu */
+#svg{
+    border: 3px solid #000000;
+    border-radius: 5px;
+    background-color: #9fc5f3;
+    width: 100%;             /* Adds full width */
+    height: 100%;            /* Adds full height */
+    box-sizing: border-box;  /* Keeps the border inside the container */
+    max-width: 100%;
+    max-height: 100%;
+    display: block;          /* Removes extra space below the SVG */
+}
+
+/* pravá část s navigačním panelem */
+.side.right {
+    color: #fffcf2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* informační panel */
+.infopanel{
+    font-size: 14px;
+    background-color: #000000;
+    border-radius: 5px;
+    flex: 1;
+    border: 1px solid #5b2c00;
+    padding: 8px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* odstavec pro tabulku */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 10px;
+    margin: 8px auto;
+    font-size: 12px;
+    border: 2px solid #5b2c00;
+    background-color: #252422;
+}
+
+/* odstavec pro halvičky i data tabulky */
+th, td {
+    padding: 5px;
+    text-align: center;
+    border: 2px solid #5b2c00;
+    background-color: #252422;
+}
+
+/* odstavec pro hlavičky tabulky */
+th {
+    background-color: #373532;
+    color: #fffafa;
+}
+
+/* aktualizace šířky a výšky scény s REXYGENEM */
+#rexY,#rexX{
+    height: 16px;
+}
+
+/* odstavec s motorem */
+.engine{
+    font-size: 15px;
+    background-color: #252422;
+    padding-bottom: 8px;
+    padding-top: -8px;
+    text-align: center;
+    border: 1px solid #5b2c00;
+    flex: 1;  
+}
+
+/* odstavec s nadpisem u motoru */
+.engine p {
+    margin: 5px;           /* Odstranit vnější prostor kolem nadpisu engine */
+}
+
+/* Tlačítka pro nastavení hodnoty motoru - všechny */
+.buttons {
+    justify-content: center;
+}
+
+/* Tlačítka pro nastavení hodnoty motoru - jednotlivě */
+.buttons button {
+    outline: none; /* Odstranění zdůraznění pro všechna tlačítka */
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Tlačítko pro restart simulace - třída button */
+.reset-btn {
+    font-size: 16px;
+    width: 100px;
+    height: 24px;
+    margin-top: 3px;
+    background-color: #fffcf2;
+    border: 2px solid #5b2c00;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* Tlačítko pro restart simulace - třída odstavec */
+.resetButton{
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+/* odstavec pro směrovou šipku a bar grafy dohromady */
+.svgRow {
+    height: 120px;
+    display: flex;
+}
+
+/* odstavec pro bar grafy */
+.svgLeft {
+    flex: 2;     
+}
+
+/* identifikátor bar grafů */
+#svgBarGraph{
+    border: 1px solid #5b2c00;
+    border-radius: 15px;
+    background-color: #fffafa;
+    width: 100%;
+    height: 120px;
+}
+
+/* odstavec pro směrovou šipku */
+.svgRight {
+    flex: 1;
+}
+
+/* identifikátor směrové šipky */
+#svgArrow{
+    border: 2px solid #5b2c00;
+    border-radius: 15px;
+    background-color: #fffafa;
+    width: 120px;
+}
+
+/* odstavec na ovládání rakety */
+.controls {
+    background-color: #252422;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid #5b2c00;
+    margin-top: 10px;
+}
+
+/* odstavec pro šipky */
+.arrow-btn {
+    outline: none;
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    background-color: #fffafa;
+    border: 4px solid #00000000;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* označení barvy pro šipky při najetí myší */
+.arrow-btn:hover,.reset-btn:hover {
+    background-color: #1ec715;
+}
+
+/* označení barvy pro reset button při používání */
+.reset-btn:active, .active-level {
+    background-color: #1ec715;
+}
+
+/* označení barvy pro šipky při používání */
+.arrow-btn.active {
+    background-color: #1ec715;
+}
+
+/* odstavec pro vyskakovací hlášku */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* odstavec pro vyskakovací hlášku */
+.modal-content {
+    color: #252422;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fffafa;
+    padding: 30px;
+    border: 2px solid #252422;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 999;
+    min-width: 320px;
+}
